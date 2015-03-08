@@ -1,7 +1,23 @@
 body {
   font-family: HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  background: rgba(229,229,229,1);
 }
+
 .photo_info_bar {
   -webkit-transition: opacity .5s;
   transition: opacity .5s;
+}
+
+.photo img {
+  -webkit-box-shadow: 0 3px 7px rgba(0,0,0,.3);
+  -moz-box-shadow: 0 3px 7px rgba(0,0,0,.3);
+  box-shadow: 0 3px 7px rgba(0,0,0,.3);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.flex_container {
+  display: -webkit-flex;
+  display: flex;
 }
