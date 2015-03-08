@@ -1,0 +1,7 @@
+body {
+  font-family: HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+.photo_info_bar {
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+}
