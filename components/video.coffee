@@ -5,7 +5,14 @@
 
   getInitialState: () ->
     barVisible: false
-    mapVisible: false
+    width: @getWidth()
+
+  componentDidMount: () ->
+    resizeFunc = () => @setState(width: @getWidth())
+    $(window).on "resize.videoSizing", _.throttle(resizeFunc, 200)
+
+  componentWillUnmount: () ->
+    $(window).off "resize.videoSizing"
 
   getParams: () ->
     obj =
@@ -22,6 +29,7 @@
 
   render: () ->
     {div, iframe} = React.DOM
+
     div
       className: "photo"
       onMouseEnter: () =>
@@ -33,11 +41,17 @@
         width: "100%"
         marginBottom: 20
 
+      PhotoInfoBar
+        photo: @props.video
+        visible: @state.barVisible
+        showMapLink: false
+
       iframe
         className: "video_player"
         style:
+          width: "100%"
           border: "none"
-        width: @getWidth()
+        width: "100%"
         height: @getHeight()
         frameborder: 0
         src: "http://www.youtube.com/embed/#{@props.video.vid}#{@getParams()}"

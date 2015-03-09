@@ -4,6 +4,7 @@
   pageComponents:
     home: @Home
     about: @About
+    single: @Single
   
   render: () ->
-    @pageComponents[@props.page]()
+    @pageComponents[@props.page] @props

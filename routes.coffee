@@ -7,6 +7,28 @@ Router.route "/", () ->
   else
     @response.end React.renderToString(outer.App(page: "home"))
 
+Router.route "/photos/:pid", () ->
+  if Meteor.isClient
+    @render "App", data:
+      page: "single"
+      pid: @params.pid
+  else
+    @response.end React.renderToString(outer.App(
+      page: "single"
+      pid: @params.pid
+    ))
+
+Router.route "/videos/:vid", () ->
+  if Meteor.isClient
+    @render "App", data:
+      page: "single"
+      vid: @params.vid
+  else
+    @response.end React.renderToString(outer.App(
+      page: "single"
+      vid: @params.vid
+    ))
+
 Router.route "/about", () ->
   if Meteor.isClient
     @render "App", data:

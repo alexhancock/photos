@@ -1,9 +1,13 @@
-@About = React.createFactory React.createClass
-  displayName: "About"
+@Single = React.createFactory React.createClass
+  displayName: "Single"
   mixins: [ReactMeteor.Mixin, MediaSizingMixin]
   getInitialState: () -> {}
   getMeteorState: () ->
-    photo: Photos.findOne({ pid: "about" })
+    key = if @props.pid? then "pid" else "vid"
+    query = {}
+    query[key] = @props[key]
+
+    media: Photos.findOne(query)
 
   renderSiteHeader: () ->
     {div, span, a} = React.DOM
@@ -36,23 +40,6 @@
             cursor: "pointer"
           "contact"
 
-  renderBio: () ->
-    {div, br} = React.DOM
-
-    div
-      style:
-        zIndex: 30
-        position: "absolute"
-        top: 40
-        left: 40
-        color: "white"
-
-      "My name is Alex Hancock. I am 26 years old and live in Oakland, California."
-      br {}, ""
-      "I work as a software engineer and enjoy travel, running, and photography."
-      br {}, ""
-      "The photos on my site were taken with a Canon 5D Mark III."
-
   render: () ->
     {div, img} = React.DOM
 
@@ -64,13 +51,15 @@
 
       @renderSiteHeader()
 
-      div
-        style:
-          position: "relative"
-          width: "100%"
+      if @state.media?
+        div
+          style:
+            position: "relative"
+            width: "100%"
 
-        @renderBio()
-
-        img
-          src: @state.photo.source
-          width: "100%"
+          if @props.pid
+            Photo
+              photo: @state.media
+          else if @props.vid
+            Video
+              video: @state.media
