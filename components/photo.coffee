@@ -135,6 +135,8 @@
       
       img
         className: "image_photo"
-        src: @props.photo.source
+        src: "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs="
+        "data-src": @props.photo.source
         style:
+          height: @getHeight()
           width: "100%"

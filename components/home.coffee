@@ -1,9 +1,22 @@
 @Home = React.createFactory React.createClass
   displayName: "Home"
   mixins: [ReactMeteor.Mixin, MediaSizingMixin]
-  getInitialState: () -> {}
+
+  getPhotos: () -> Photos.find({ pid: { $not: "about"} }, {sort: {'_id': -1}}).fetch()
+
+  getInitialState: () ->
+    photos: @getPhotos()
+
   getMeteorState: () ->
-    photos: Photos.find({}, {sort: {'_id': -1}}).fetch()
+    photos: @getPhotos()
+
+  componentDidUpdate: (prevProps, prevState) ->
+    cond = @state.photos.length != prevState.photos.length
+    if cond
+      $("img").unveil($(window).height() * 2)
+
+  componentDidMount: () ->
+    $("img").unveil($(window).height() * 2)
 
   renderPhotos: () ->
     _.map @state.photos, (obj) ->
@@ -53,3 +66,7 @@
 
       @renderSiteHeader()
       @renderPhotos()
+
+      div
+        style:
+          height: 110
