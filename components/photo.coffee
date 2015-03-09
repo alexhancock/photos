@@ -5,6 +5,14 @@
   getInitialState: () ->
     barVisible: false
     mapVisible: false
+    height: @getHeight()
+
+  componentDidMount: () ->
+    resizeFunc = () => @setState(height: @getHeight())
+    $(window).on "resize.photoSizing", _.throttle(resizeFunc, 200)
+
+  componentWillUnmount: () ->
+    $(window).off "resize.photoSizing"
 
   getMapStyles: () ->
     [
@@ -138,5 +146,5 @@
         src: "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs="
         "data-src": @props.photo.source
         style:
-          height: @getHeight()
+          height: @state.height
           width: "100%"

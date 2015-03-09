@@ -1,6 +1,9 @@
 @PhotoInfoBar = React.createFactory React.createClass
   displayName: "PhotoInfoBar"
 
+  getInitialState: () ->
+    mapVisible: false
+
   render: () ->
     {div, span, img} = React.DOM
     FlexContainer
@@ -16,7 +19,6 @@
         lineHeight: "40px"
         color: "white"
         verticalAlign: "middle"
-        backgroundColor: "rgba(0, 0, 0, 0.5)"
 
       FlexItem
         flex: "0 0 10px"
@@ -26,7 +28,9 @@
 
         span
           style:
+            opacity: if @state.mapVisible then 0 else 1
             cursor: "pointer"
+            textShadow: "0px 0px 2px rgba(0, 0, 0, .5)"
           onClick: () =>
             hasPid = @props.photo.pid?
             key = if hasPid then "pid" else "vid"
@@ -43,10 +47,14 @@
           span
             style:
               cursor: "pointer"
+              textShadow: "0px 0px 2px rgba(0, 0, 0, .5)"
+              opacity: if @state.mapVisible then 0 else 1
             onMouseOver: () =>
               @props.hoveredOverMapButton()
+              @setState(mapVisible: true)
             onMouseLeave: () =>
               @props.leftMapButton()
+              @setState(mapVisible: false)
             "Map"
       
       if @props.showMapLink
