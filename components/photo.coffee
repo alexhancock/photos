@@ -2,6 +2,9 @@
   displayName: "Photo"
   mixins: [MediaSizingMixin]
 
+  getDefaultProps: () ->
+    unveil: false
+
   getInitialState: () ->
     barVisible: false
     mapVisible: false
@@ -102,6 +105,26 @@
         styles: @getMapStyles()
       marker.setMap map
 
+  getImageProps: () ->
+    className = "image_photo"
+
+    if @props.unveil
+      className += " unveil"
+
+    props =
+      className: className
+      style:
+        height: @state.height
+        width: "100%"
+
+    if @props.unveil
+      props.src = "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs="
+      props["data-src"] = @props.photo.source
+    else
+      props.src = @props.photo.source
+
+    props
+
   render: () ->
     {div, span, img} = React.DOM
 
@@ -141,10 +164,4 @@
           width: "100%"
           height: "100%"
       
-      img
-        className: "image_photo"
-        src: "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs="
-        "data-src": @props.photo.source
-        style:
-          height: @state.height
-          width: "100%"
+      img @getImageProps()

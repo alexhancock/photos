@@ -12,9 +12,9 @@ body {
   transition: opacity .5s;
 }
 
-.photo img.image_photo {
-  opacity: 0.25;
-  transition: opacity .35s ease-in;
+.photo img.image_photo.unveil {
+  opacity: 0.10;
+  transition: opacity .25s ease-in;
 }
 
 .photo img.image_photo, iframe.video_player {

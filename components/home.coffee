@@ -12,7 +12,7 @@
 
   attachUnveil: () ->
     distance = $(window).height()*2
-    $("img").unveil distance, () ->
+    $("img.unveil").unveil distance, () ->
       $(@).load () -> @style.opacity = 1
 
   componentDidUpdate: (prevProps, prevState) ->
@@ -30,6 +30,7 @@
           video: obj
       else
         Photo
+          unveil: true
           key: obj.pid
           photo: obj
 
