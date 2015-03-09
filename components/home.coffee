@@ -1,5 +1,3 @@
-@Photos = new Mongo.Collection("photos")
-
 @Home = React.createFactory React.createClass
   displayName: "Home"
   mixins: [ReactMeteor.Mixin, MediaSizingMixin]
@@ -14,7 +12,7 @@
       else
         Photo {photo: obj}
 
-  renderTitleBar: () ->
+  renderSiteHeader: () ->
     {div, span} = React.DOM
 
     FlexContainer
@@ -53,5 +51,5 @@
         width: "80%"
         maxWidth: @getMaxWidth()
 
-      @renderTitleBar()
+      @renderSiteHeader()
       @renderPhotos()
