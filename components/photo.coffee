@@ -154,6 +154,8 @@
         ref: "map_canvas"
         className: "map_canvas"
         style:
+          cursor: "default"
+          pointerEvents: "none"
           opacity: if @state.mapVisible then 1 else 0
           position: "absolute"
           top: 0
