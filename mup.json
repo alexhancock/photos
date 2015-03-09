@@ -14,7 +14,7 @@
   "appName": "photos",
   "app": "~/work/photos",
   "env": {
-    "ROOT_URL": "http://54.153.71.168"
+    "ROOT_URL": "http://alexhancock.com"
   },
   "deployCheckWaitTime": 30
 }
