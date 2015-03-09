@@ -10,3 +10,4 @@ avital:react-in-blaze
 iron:router
 underscore
 jquery
+meteorhacks:fast-render

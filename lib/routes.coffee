@@ -6,6 +6,12 @@ Router.route "/", () ->
       page: "home"
   else
     @response.end React.renderToString(outer.App(page: "home"))
+, {
+  fastRender: true
+  waitOn: () ->
+    return Meteor.subscribe('photos')
+}
+
 
 Router.route "/photos/:pid", () ->
   if Meteor.isClient
