@@ -137,7 +137,7 @@
       style:
         position: "relative"
         width: "100%"
-        marginBottom: 20
+        marginBottom: 40
 
       PhotoInfoBar
         photo: @props.photo
