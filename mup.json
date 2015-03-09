@@ -1,0 +1,20 @@
+{
+  // Server authentication info
+  "servers": [
+    {
+      "host": "54.153.71.168",
+      "username": "ubuntu",
+      "pem": "~/aws/mbp.pem"
+    }
+  ],
+
+  "setupMongo": true,
+  "setupNode": true,
+  "nodeVersion": "0.12.0",
+  "appName": "photos",
+  "app": "~/work/photos",
+  "env": {
+    "ROOT_URL": "http://54.153.71.168"
+  },
+  "deployCheckWaitTime": 30
+}
