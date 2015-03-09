@@ -10,20 +10,28 @@
   getMeteorState: () ->
     photos: @getPhotos()
 
+  attachUnveil: () ->
+    distance = $(window).height()*2
+    $("img").unveil distance, () ->
+      $(@).load () -> @style.opacity = 1
+
   componentDidUpdate: (prevProps, prevState) ->
     cond = @state.photos.length != prevState.photos.length
-    if cond
-      $("img").unveil($(window).height() * 2)
+    @attachUnveil() if cond
 
   componentDidMount: () ->
-    $("img").unveil($(window).height() * 2)
+    @attachUnveil() if @state.photos.length
 
   renderPhotos: () ->
     _.map @state.photos, (obj) ->
       if obj.vid?
-        Video {video: obj}
+        Video
+          key: obj.vid
+          video: obj
       else
-        Photo {photo: obj}
+        Photo
+          key: obj.pid
+          photo: obj
 
   renderSiteHeader: () ->
     {div, span} = React.DOM
@@ -32,6 +40,7 @@
       direction: "row"
       style:
         width: "100%"
+        verticalAlign: "middle"
         height: 110
 
       FlexItem

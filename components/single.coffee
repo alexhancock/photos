@@ -9,6 +9,13 @@
 
     media: Photos.findOne(query)
 
+  componentDidUpdate: (prevProps, prevState) ->
+    if @state.media and !prevState.media?
+      $("img").unveil()
+
+  componentDidMount: () ->
+    $("img").unveil()
+
   renderSiteHeader: () ->
     {div, span, a} = React.DOM
 
@@ -32,13 +39,12 @@
       FlexItem
         flex: "0 0 auto"
         alignSelf: "center"
-        a
-          href: "mailto:alex@alexhancock.com"
+        span
+          onClick: () ->
+            Router.go "/about"
           style:
-            color: "black"
-            textDecoration: "none"
             cursor: "pointer"
-          "contact"
+          "about"
 
   render: () ->
     {div, img} = React.DOM

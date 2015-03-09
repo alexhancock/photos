@@ -19,6 +19,7 @@
       rel: 0
       showinfo: 0
       autohide: 1
+      fs: 1
 
     str = "?"
 
@@ -53,6 +54,6 @@
           border: "none"
         width: "100%"
         height: @getHeight()
-        frameborder: 0
+        frameBorder: 0
         src: "http://www.youtube.com/embed/#{@props.video.vid}#{@getParams()}"
-        allowfullscreen: true
+        allowFullScreen: true

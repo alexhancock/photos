@@ -30,6 +30,7 @@
         alignSelf: "center"
         a
           href: "mailto:alex@alexhancock.com"
+          target: "_blank"
           style:
             color: "black"
             textDecoration: "none"

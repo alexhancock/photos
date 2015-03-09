@@ -12,6 +12,11 @@ body {
   transition: opacity .5s;
 }
 
+.photo img.image_photo {
+  opacity: 0.25;
+  transition: opacity .35s ease-in;
+}
+
 .photo img.image_photo, iframe.video_player {
   -webkit-box-shadow: 0 3px 7px rgba(0,0,0,.3);
   -moz-box-shadow: 0 3px 7px rgba(0,0,0,.3);
