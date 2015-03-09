@@ -2,13 +2,17 @@
 
 @Home = React.createFactory React.createClass
   displayName: "Home"
-  mixins: [ReactMeteor.Mixin]
+  mixins: [ReactMeteor.Mixin, MediaSizingMixin]
   getInitialState: () -> {}
   getMeteorState: () ->
     photos: Photos.find({}, {sort: {'_id': -1}}).fetch()
 
   renderPhotos: () ->
-    _.map @state.photos, (photo) -> Photo {photo}
+    _.map @state.photos, (obj) ->
+      if obj.vid?
+        Video {video: obj}
+      else
+        Photo {photo: obj}
 
   renderTitleBar: () ->
     {div, span} = React.DOM
@@ -42,12 +46,12 @@
 
   render: () ->
     {div} = React.DOM
+
     div
       style:
         margin: "0 auto"
         width: "80%"
-        maxWidth: 900
+        maxWidth: @getMaxWidth()
 
       @renderTitleBar()
-
       @renderPhotos()

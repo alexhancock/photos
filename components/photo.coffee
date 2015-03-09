@@ -43,6 +43,7 @@
 
 @Photo = React.createFactory React.createClass
   displayName: "Photo"
+  mixins: [MediaSizingMixin]
 
   getInitialState: () ->
     barVisible: false
@@ -147,6 +148,7 @@
       style:
         position: "relative"
         width: "100%"
+        height: @getHeight()
         marginBottom: 20
 
       PhotoInfoBar
@@ -178,3 +180,4 @@
         src: @props.photo.source
         style:
           width: "100%"
+          height: @getHeight()
