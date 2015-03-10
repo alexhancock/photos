@@ -7,7 +7,8 @@
       style:
         order: 0
         alignSelf: @props.alignSelf or null
-        WebkitFlex: @props.flex
+        WebkitAlignSelf: @props.alignSelf or null
         flex: @props.flex
+        WebkitFlex: @props.flex
 
       @props.children
