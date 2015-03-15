@@ -11,3 +11,4 @@ iron:router
 underscore
 jquery
 meteorhacks:fast-render
+houston:admin

@@ -2,7 +2,7 @@
   displayName: "Home"
   mixins: [ReactMeteor.Mixin, MediaSizingMixin]
 
-  getPhotos: () -> Photos.find({ pid: { $not: "about"} }, {sort: {'_id': -1}}).fetch()
+  getPhotos: () -> Photos.find({ pid: { $not: "about"} }, {sort: {'order': -1}}).fetch()
 
   getInitialState: () ->
     photos: @getPhotos()
@@ -24,7 +24,7 @@
 
   renderPhotos: () ->
     _.map @state.photos, (obj) ->
-      if obj.vid?
+      if obj.vid? and obj.vid != ""
         Video
           key: obj.vid
           video: obj
