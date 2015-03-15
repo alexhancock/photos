@@ -16,5 +16,5 @@
   "env": {
     "ROOT_URL": "http://alexhancock.com"
   },
-  "deployCheckWaitTime": 30
+  "deployCheckWaitTime": 120
 }
