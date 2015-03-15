@@ -10,7 +10,7 @@
 
   "setupMongo": true,
   "setupNode": true,
-  "nodeVersion": "0.12.0",
+  "nodeVersion": "0.10.36",
   "appName": "photos",
   "app": "~/work/photos",
   "env": {
