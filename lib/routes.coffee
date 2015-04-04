@@ -1,6 +1,7 @@
 outer = @
 
 Router.route "/", () ->
+  GAnalytics.pageview()
   if Meteor.isClient
     @render "App", data:
       page: "home"
@@ -12,8 +13,8 @@ Router.route "/", () ->
     return Meteor.subscribe('photos')
 }
 
-
 Router.route "/photos/:pid", () ->
+  GAnalytics.pageview "/photos/#{@params.pid}"
   if Meteor.isClient
     @render "App", data:
       page: "single"
@@ -25,6 +26,7 @@ Router.route "/photos/:pid", () ->
     ))
 
 Router.route "/videos/:vid", () ->
+  GAnalytics.pageview "/videos/#{@params.vid}"
   if Meteor.isClient
     @render "App", data:
       page: "single"
@@ -36,6 +38,7 @@ Router.route "/videos/:vid", () ->
     ))
 
 Router.route "/about", () ->
+  GAnalytics.pageview "/about"
   if Meteor.isClient
     @render "App", data:
       page:"about"
