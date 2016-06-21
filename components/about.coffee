@@ -48,7 +48,7 @@
         left: 40
         color: "white"
 
-      "My name is Alex Hancock. I am 26 years old and live in Oakland, California."
+      "My name is Alex Hancock. I am 27 years old and live in Oakland, California."
       br {}, ""
       "I work as a software engineer and enjoy travel, running, and photography."
       br {}, ""
@@ -73,5 +73,5 @@
         @renderBio()
 
         img
-          src: @state.photo.source
+          src: @state.photo?.source or ""
           width: "100%"
