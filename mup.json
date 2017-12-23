@@ -4,7 +4,7 @@
     {
       "host": "54.153.26.18",
       "username": "ubuntu",
-      "pem": "~/aws/mbp.pem"
+      "pem": "~/Google Drive/Work/SSH Keys/mbp.pem"
     }
   ],
 
