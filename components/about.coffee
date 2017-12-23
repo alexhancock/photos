@@ -48,7 +48,7 @@
         left: 40
         color: "white"
 
-      "My name is Alex Hancock. I am 27 years old and live in Oakland, California."
+      "My name is Alex Hancock. I am 29 years old and live in San Francisco, California."
       br {}, ""
       "I work as a software engineer and enjoy travel, running, and photography."
       br {}, ""
