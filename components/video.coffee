@@ -42,10 +42,10 @@
         width: "100%"
         marginBottom: 40
 
-      PhotoInfoBar
-        photo: @props.video
-        visible: @state.barVisible
-        showMapLink: false
+      # PhotoInfoBar
+      #   photo: @props.video
+      #   visible: @state.barVisible
+      #   showMapLink: false
 
       iframe
         className: "video_player"

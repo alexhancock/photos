@@ -4,12 +4,27 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 coffeescript
 avital:react-in-blaze
 iron:router
-underscore
+underscore@1.0.10
 jquery
-meteorhacks:fast-render
+# meteorhacks:fast-render
 houston:admin
 datariot:ganalytics
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+standard-minifier-css
+standard-minifier-js
+shell-server
+dynamic-import
