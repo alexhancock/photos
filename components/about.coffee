@@ -3,7 +3,7 @@
   mixins: [ReactMeteor.Mixin, MediaSizingMixin]
   getInitialState: () -> {}
   getMeteorState: () ->
-    photo: Photos.findOne({ pid: "about" })
+    photo: Photos.findOne({ pid: "about-sept-2020" })
 
   renderSiteHeader: () ->
     {div, span, a} = React.DOM
@@ -45,14 +45,17 @@
         zIndex: 30
         position: "absolute"
         top: 40
-        left: 40
-        color: "white"
+        right: 40
+        color: "black"
+        maxWidth: @getMaxWidth() * 0.3333
 
-      "My name is Alex Hancock. I am 29 years old and live in San Francisco, California."
+      "My name is Alex Hancock. I live in San Francisco, California."
       br {}, ""
-      "I work as a software engineer and enjoy travel, running, and photography."
       br {}, ""
-      "The photos on my site were taken with a Canon 5D Mark III."
+      "I work as a software engineer at Square and enjoy travel, running, and photography."
+      br {}, ""
+      br {}, ""
+      "The photographs on my site were taken with a Canon 5D Mark III."
 
   render: () ->
     {div, img} = React.DOM
